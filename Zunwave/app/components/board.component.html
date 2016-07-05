@@ -1,0 +1,19 @@
+﻿<h1>
+    App Starts here!
+</h1>
+<div>{{name}}</div>
+<postbox (onPost) ="handleOnPost($event)"></postbox>
+<table *ngFor="let item of activities">
+    <tr>
+        <td>{{item.activityId}}</td>
+        <td>{{item.content}}</td>
+        <td>{{item.activityType}}</td>
+        <td>{{item.activityImage}}</td>
+        <td>{{item.createdDate}}</td>
+        <td>{{item.audience}}</td>
+        <td>{{item.someCoolDescription}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.smallImageUrl}}</td>
+        <td>{{item.largeImageUrl}}</td>
+    </tr>
+</table>

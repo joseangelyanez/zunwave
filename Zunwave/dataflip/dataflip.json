@@ -1,0 +1,27 @@
+{
+	"contexts" :
+	[
+    {
+      "connectionString": "Server=198.71.226.6;Database=zunwave_db1;User Id=swoepc12233;Password=uEwg5*78$$",
+      "namespace": "Zunwave.Data",
+      "name": "Context",
+      "output": "../Context.cs",
+      "typeScript": { "output" : "../app/dataflip.typings.ts" },
+      "angular": { "htmlBindings" :  "../app/htmlbindings.html" },
+      "sprocs": [
+        {
+          "comments": "Gets all the activities",
+          "method": "GetActivities",
+          "name": "GetActivities",
+
+          "testParams": [
+            { "@Name": "Hello : text" }
+          ]
+        },
+        {
+          "name" :  "CreateActivity"
+        }
+      ]
+    }
+	]
+}

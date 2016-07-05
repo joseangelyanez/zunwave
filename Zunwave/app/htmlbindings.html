@@ -1,0 +1,32 @@
+<!-- AngularJS2 Bindings -->
+
+<!-- Bindings for GetActivities_Result -->
+
+<!-- List binding for GetActivities -->
+<table *ngFor="let item of ?? ">
+	<tr>
+		<td>{{item.activityId}}</td>
+		<td>{{item.content}}</td>
+		<td>{{item.activityType}}</td>
+		<td>{{item.activityImage}}</td>
+		<td>{{item.createdDate}}</td>
+		<td>{{item.audience}}</td>
+		<td>{{item.someCoolDescription}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.smallImageUrl}}</td>
+		<td>{{item.largeImageUrl}}</td>
+	</tr>
+</table>
+<!-- Bindings for GetActivities_Parameters -->
+<!-- n-Way Bindings -->
+[(ngModel)]=name
+
+<!-- Bindings for CreateActivity_Result -->
+<!-- Method returns a basic type. -->
+<!-- Bindings for CreateActivity_Parameters -->
+<!-- n-Way Bindings -->
+[(ngModel)]=userId
+[(ngModel)]=content
+[(ngModel)]=activityType
+[(ngModel)]=activityImage
+
