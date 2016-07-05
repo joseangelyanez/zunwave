@@ -11,6 +11,7 @@ import { Context  }     from '../dataflip.typings'
     providers: [ ApiService ],
     styleUrls: ['app/components/board.component.css'],
     templateUrl: 'app/components/board.component.html',
+
     directives: [
         PostBoxComponent
     ]
