@@ -16,8 +16,19 @@ define(["require", "exports", '@angular/core', '@angular/http'], function (requi
         ApiService.prototype.getActitvities = function () {
             return this._http.get('/api/data/GetActivities');
         };
-        ApiService.prototype.createActivity = function (args) {
-            return this._http.post('/api/data/CreateActivity', args);
+        ApiService.prototype.getSessionState = function () {
+            this.getSessionStateResult =
+                this._http.get('/api/data/getsessionstate?userId=1');
+            return this.getSessionStateResult;
+        };
+        ApiService.prototype.createArticle = function (args) {
+            return this._http.post('/api/data/CreateArticle', args);
+        };
+        ApiService.prototype.createBook = function (args) {
+            return this._http.post('/api/data/CreateBook', args);
+        };
+        ApiService.prototype.createCodeProject = function (args) {
+            return this._http.post('/api/data/CreateCodeProject', args);
         };
         ApiService = __decorate([
             core_1.Injectable(), 

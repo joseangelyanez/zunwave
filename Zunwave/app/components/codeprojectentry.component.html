@@ -1,0 +1,49 @@
+﻿<button type="button" class="btn btn-default" (click)="modal3.open()">Add a code project</button>
+
+<modal #modal3>
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">Add a new project</h4>
+    </modal-header>
+    <modal-body>
+        <table class="entry-table">
+            <tr>
+                <td>
+                    Url
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="entry.url" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="entry.name" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Description
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="entry.description" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Project Type
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="entry.projectType" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" (click)="handleCreateClick()" value="Create Code Project" />
+                </td>
+            </tr>
+        </table>
+    </modal-body>
+    <modal-footer [show-default-buttons]="true"></modal-footer>
+</modal>

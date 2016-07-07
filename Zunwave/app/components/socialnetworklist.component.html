@@ -1,0 +1,5 @@
+﻿<!-- List binding for GetSocialNetworks -->
+<div *ngFor="let item of socialNetworks">
+    <strong><div>{{item.name}}</div></strong>
+    <a [href]="item.url">{{item.url}}</a>
+</div>

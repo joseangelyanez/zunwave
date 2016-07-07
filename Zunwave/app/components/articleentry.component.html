@@ -1,0 +1,42 @@
+﻿<hr />
+<button type="button" class="btn btn-default" (click)="modal3.open()">Write up an article</button>
+
+<modal #modal3>
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">Write new Article</h4>
+    </modal-header>
+    <modal-body>
+        <table>
+            <tr>
+                <td>
+                    Title
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="entry.title" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Short Description
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="entry.shortDescription" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Content
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="entry.content" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" (click)="handleCreateClick()" value="Publish" />
+                </td>
+            </tr>
+        </table>
+    </modal-body>
+    <modal-footer [show-default-buttons]="true"></modal-footer>
+</modal>

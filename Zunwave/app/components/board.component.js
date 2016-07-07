@@ -7,25 +7,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", '@angular/core', '../services/api.service', '../components/postbox.component'], function (require, exports, core_1, api_service_1, postbox_component_1) {
+define(["require", "exports", '@angular/core', '../services/api.service', '../components/postbox.component', '../components/booklist.component', '../components/codeprojectlist.component', '../components/articlelist.component', '../components/socialnetworklist.component', '../components/technologylist.component', '../dataflip.typings'], function (require, exports, core_1, api_service_1, postbox_component_1, booklist_component_1, codeprojectlist_component_1, articlelist_component_1, socialnetworklist_component_1, technologylist_component_1, dataflip_typings_1) {
     "use strict";
     var BoardComponent = (function () {
         function BoardComponent(_service) {
             this._service = _service;
-            this.activities = [];
+            this.appUser = new dataflip_typings_1.Context.GetAppUser_Result();
         }
         BoardComponent.prototype.handleOnPost = function (post) {
             console.log(post);
-            this.renderPosts();
-        };
-        BoardComponent.prototype.renderPosts = function () {
-            var _this = this;
-            this._service.getActitvities().subscribe(function (value) {
-                _this.activities = value.json();
-            }, function (error) { }, function () { });
         };
         BoardComponent.prototype.ngOnInit = function () {
-            this.renderPosts();
+            var _this = this;
+            this._service.getSessionState().subscribe(function (result) {
+                _this.appUser = result.json().appUser;
+            }, function (error) {
+            }, function () {
+            });
         };
         BoardComponent = __decorate([
             core_1.Component({
@@ -34,7 +32,12 @@ define(["require", "exports", '@angular/core', '../services/api.service', '../co
                 styleUrls: ['app/components/board.component.css'],
                 templateUrl: 'app/components/board.component.html',
                 directives: [
-                    postbox_component_1.PostBoxComponent
+                    postbox_component_1.PostBoxComponent,
+                    booklist_component_1.BooklistComponent,
+                    codeprojectlist_component_1.CodeProjectListComponent,
+                    articlelist_component_1.ArticleListComponent,
+                    socialnetworklist_component_1.SocialNetworkListComponent,
+                    technologylist_component_1.TechnologyListComponent
                 ]
             }), 
             __metadata('design:paramtypes', [api_service_1.ApiService])

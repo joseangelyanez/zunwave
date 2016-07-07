@@ -229,8 +229,24 @@
   <ItemGroup>
     <Content Include="app\app.component.css" />
     <Content Include="app\app.component.html" />
+    <Content Include="app\components\technologylist.component.css" />
+    <Content Include="app\components\technologylist.component.html" />
+    <Content Include="app\components\socialnetworklist.component.css" />
+    <Content Include="app\components\socialnetworklist.component.html" />
+    <Content Include="app\components\codeprojectentry.component.css" />
+    <Content Include="app\components\codeprojectentry.component.html" />
+    <Content Include="app\components\bookentry.component.css" />
+    <Content Include="app\components\bookentry.component.html" />
+    <Content Include="app\components\articlelist.component.css" />
+    <Content Include="app\components\articlelist.component.html" />
+    <Content Include="app\components\codeprojectlist.component.css" />
+    <Content Include="app\components\codeprojectlist.component.html" />
+    <Content Include="app\components\booklist.component.css" />
+    <Content Include="app\components\booklist.component.html" />
     <Content Include="app\components\board.component.css" />
     <Content Include="app\components\board.component.html" />
+    <Content Include="app\components\articleentry.component.css" />
+    <Content Include="app\components\articleentry.component.html" />
     <Content Include="app\components\postbox.component.css" />
     <Content Include="app\components\postbox.component.html" />
     <Content Include="app\htmlbindings.html" />
@@ -317,7 +333,15 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
+    <TypeScriptCompile Include="app\components\technologylist.component.ts" />
+    <TypeScriptCompile Include="app\components\socialnetworklist.component.ts" />
+    <TypeScriptCompile Include="app\components\codeprojectentry.component.ts" />
+    <TypeScriptCompile Include="app\components\bookentry.component.ts" />
+    <TypeScriptCompile Include="app\components\articlelist.component.ts" />
+    <TypeScriptCompile Include="app\components\codeprojectlist.component.ts" />
+    <TypeScriptCompile Include="app\components\booklist.component.ts" />
     <TypeScriptCompile Include="app\components\board.component.ts" />
+    <TypeScriptCompile Include="app\components\articleentry.component.ts" />
     <TypeScriptCompile Include="app\components\postbox.component.ts" />
     <TypeScriptCompile Include="app\dataflip.typings.ts" />
     <TypeScriptCompile Include="app\main.ts" />

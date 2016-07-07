@@ -9,39 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 define(["require", "exports", '@angular/core', '../services/api.service'], function (require, exports, core_1, api_service_1) {
     "use strict";
-    var PostBoxComponent = (function () {
-        function PostBoxComponent(_service) {
+    var SocialNetworkListComponent = (function () {
+        function SocialNetworkListComponent(_service) {
             this._service = _service;
-            this.onPost = new core_1.EventEmitter();
         }
-        PostBoxComponent.prototype.handleClick = function () {
-            var params = {};
-            params.content = this.content;
-            params.userId = 1;
-            params.activityImage = "noimage";
-            params.activityType = "POST";
-            /*
-            this._service.createActivity(params).subscribe(
-                () => this.onPost.emit("created")
-            );*/
+        SocialNetworkListComponent.prototype.initialize = function () {
+            var _this = this;
+            this._service.getSessionState().subscribe(function (value) {
+                _this.socialNetworks = value.json().socialNetworks;
+            }, function (error) { }, function () { });
         };
-        PostBoxComponent.prototype.ngOnInit = function () { };
-        __decorate([
-            core_1.Output(), 
-            __metadata('design:type', core_1.EventEmitter)
-        ], PostBoxComponent.prototype, "onPost", void 0);
-        PostBoxComponent = __decorate([
+        SocialNetworkListComponent.prototype.ngOnInit = function () {
+            this.initialize();
+        };
+        SocialNetworkListComponent = __decorate([
             core_1.Component({
-                selector: 'postbox',
+                selector: 'socialnetworklist',
                 providers: [api_service_1.ApiService],
-                styleUrls: ['app/components/postbox.component.css'],
-                templateUrl: 'app/components/postbox.component.html',
+                styleUrls: ['app/components/socialnetworklist.component.css'],
+                templateUrl: 'app/components/socialnetworklist.component.html',
                 directives: []
             }), 
             __metadata('design:paramtypes', [api_service_1.ApiService])
-        ], PostBoxComponent);
-        return PostBoxComponent;
+        ], SocialNetworkListComponent);
+        return SocialNetworkListComponent;
     }());
-    exports.PostBoxComponent = PostBoxComponent;
+    exports.SocialNetworkListComponent = SocialNetworkListComponent;
 });
-//# sourceMappingURL=postbox.component.js.map
+//# sourceMappingURL=socialnetworklist.component.js.map

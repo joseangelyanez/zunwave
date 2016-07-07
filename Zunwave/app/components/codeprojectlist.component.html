@@ -1,0 +1,16 @@
+﻿<!-- List binding for GetCodeProjects -->
+<div *ngFor="let item of codeProjects ">
+    <div>
+        <div>
+            <strong>{{item.name}}</strong>
+        </div>
+        <a [href]="item.url">{{item.url}}</a>
+        <div>{{item.description}}</div>
+        <!-- <div>{{item.projectType}}</div> -->
+    </div>
+    <hr />
+</div>
+<div>
+    <codeprojectentry></codeprojectentry>
+</div>
+

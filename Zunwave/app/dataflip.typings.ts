@@ -18,16 +18,118 @@ export namespace Context
 		name : string ;
 	}
 
-	export class CreateActivity_Result
+	export class GetBooks_Result
+	{
+		appUserId : number ;
+		bookId : number ;
+		title : string ;
+		author : string ;
+		comment : string ;
+	}
+	export class GetBooks_Parameters
+	{
+		appUserId : number ;
+	}
+
+	export class GetArticles_Result
+	{
+		articleId : number ;
+		appUserId : number ;
+		title : string ;
+		shortDescription : string ;
+		content : string ;
+	}
+	export class GetArticles_Parameters
+	{
+		appUserId : number ;
+	}
+
+	export class GetCodeProjects_Result
+	{
+		projectId : number ;
+		appUserId : number ;
+		url : string ;
+		name : string ;
+		description : string ;
+		projectType : string ;
+	}
+	export class GetCodeProjects_Parameters
+	{
+		appUserId : number ;
+	}
+
+	export class CreateCodeProject_Result
 	{
 		/* Method returns a basic type. */
 	}
-	export class CreateActivity_Parameters
+	export class CreateCodeProject_Parameters
 	{
-		userId : number ;
+		appUserId : number ;
+		url : string ;
+		name : string ;
+		description : string ;
+		projectType : string ;
+	}
+
+	export class CreateBook_Result
+	{
+		/* Method returns a basic type. */
+	}
+	export class CreateBook_Parameters
+	{
+		appUserId : number ;
+		title : string ;
+		author : string ;
+		comment : string ;
+	}
+
+	export class CreateArticle_Result
+	{
+		/* Method returns a basic type. */
+	}
+	export class CreateArticle_Parameters
+	{
+		appUserId : number ;
+		title : string ;
+		shortDescription : string ;
 		content : string ;
-		activityType : string ;
-		activityImage : string ;
+	}
+
+	export class GetSocialNetworks_Result
+	{
+		socialNetworkId : number ;
+		name : string ;
+		smallIcon : string ;
+		url : string ;
+	}
+	export class GetSocialNetworks_Parameters
+	{
+		appUserId : number ;
+	}
+
+	export class GetTechnologies_Result
+	{
+		technologyId : number ;
+		name : string ;
+		type : string ;
+	}
+	export class GetTechnologies_Parameters
+	{
+		appUserId : number ;
+	}
+
+	export class GetAppUser_Result
+	{
+		appUserId : number ;
+		email : string ;
+		name : string ;
+		password : string ;
+		profileImageUrl : string ;
+		username : string ;
+	}
+	export class GetAppUser_Parameters
+	{
+		appUserId : number ;
 	}
 
 }

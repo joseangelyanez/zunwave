@@ -21,12 +21,126 @@
 <!-- n-Way Bindings -->
 [(ngModel)]=name
 
-<!-- Bindings for CreateActivity_Result -->
-<!-- Method returns a basic type. -->
-<!-- Bindings for CreateActivity_Parameters -->
+<!-- Bindings for GetBooks_Result -->
+
+<!-- List binding for GetBooks -->
+<table *ngFor="let item of ?? ">
+	<tr>
+		<td>{{item.appUserId}}</td>
+		<td>{{item.bookId}}</td>
+		<td>{{item.title}}</td>
+		<td>{{item.author}}</td>
+		<td>{{item.comment}}</td>
+	</tr>
+</table>
+<!-- Bindings for GetBooks_Parameters -->
 <!-- n-Way Bindings -->
-[(ngModel)]=userId
+[(ngModel)]=appUserId
+
+<!-- Bindings for GetArticles_Result -->
+
+<!-- List binding for GetArticles -->
+<table *ngFor="let item of ?? ">
+	<tr>
+		<td>{{item.articleId}}</td>
+		<td>{{item.appUserId}}</td>
+		<td>{{item.title}}</td>
+		<td>{{item.shortDescription}}</td>
+		<td>{{item.content}}</td>
+	</tr>
+</table>
+<!-- Bindings for GetArticles_Parameters -->
+<!-- n-Way Bindings -->
+[(ngModel)]=appUserId
+
+<!-- Bindings for GetCodeProjects_Result -->
+
+<!-- List binding for GetCodeProjects -->
+<table *ngFor="let item of ?? ">
+	<tr>
+		<td>{{item.projectId}}</td>
+		<td>{{item.appUserId}}</td>
+		<td>{{item.url}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.description}}</td>
+		<td>{{item.projectType}}</td>
+	</tr>
+</table>
+<!-- Bindings for GetCodeProjects_Parameters -->
+<!-- n-Way Bindings -->
+[(ngModel)]=appUserId
+
+<!-- Bindings for CreateCodeProject_Result -->
+<!-- Method returns a basic type. -->
+<!-- Bindings for CreateCodeProject_Parameters -->
+<!-- n-Way Bindings -->
+[(ngModel)]=appUserId
+[(ngModel)]=url
+[(ngModel)]=name
+[(ngModel)]=description
+[(ngModel)]=projectType
+
+<!-- Bindings for CreateBook_Result -->
+<!-- Method returns a basic type. -->
+<!-- Bindings for CreateBook_Parameters -->
+<!-- n-Way Bindings -->
+[(ngModel)]=appUserId
+[(ngModel)]=title
+[(ngModel)]=author
+[(ngModel)]=comment
+
+<!-- Bindings for CreateArticle_Result -->
+<!-- Method returns a basic type. -->
+<!-- Bindings for CreateArticle_Parameters -->
+<!-- n-Way Bindings -->
+[(ngModel)]=appUserId
+[(ngModel)]=title
+[(ngModel)]=shortDescription
 [(ngModel)]=content
-[(ngModel)]=activityType
-[(ngModel)]=activityImage
+
+<!-- Bindings for GetSocialNetworks_Result -->
+
+<!-- List binding for GetSocialNetworks -->
+<table *ngFor="let item of ?? ">
+	<tr>
+		<td>{{item.socialNetworkId}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.smallIcon}}</td>
+		<td>{{item.url}}</td>
+	</tr>
+</table>
+<!-- Bindings for GetSocialNetworks_Parameters -->
+<!-- n-Way Bindings -->
+[(ngModel)]=appUserId
+
+<!-- Bindings for GetTechnologies_Result -->
+
+<!-- List binding for GetTechnologies -->
+<table *ngFor="let item of ?? ">
+	<tr>
+		<td>{{item.technologyId}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.type}}</td>
+	</tr>
+</table>
+<!-- Bindings for GetTechnologies_Parameters -->
+<!-- n-Way Bindings -->
+[(ngModel)]=appUserId
+
+<!-- Bindings for GetAppUser_Result -->
+
+<!-- List binding for GetAppUser -->
+<table *ngFor="let item of ?? ">
+	<tr>
+		<td>{{item.appUserId}}</td>
+		<td>{{item.email}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.password}}</td>
+		<td>{{item.profileImageUrl}}</td>
+		<td>{{item.username}}</td>
+	</tr>
+</table>
+<!-- Bindings for GetAppUser_Parameters -->
+<!-- n-Way Bindings -->
+[(ngModel)]=appUserId
 

@@ -1,19 +1,43 @@
-﻿<h1>
-    App Starts here!
-</h1>
-<div>{{name}}</div>
-<postbox (onPost) ="handleOnPost($event)"></postbox>
-<table *ngFor="let item of activities">
-    <tr>
-        <td>{{item.activityId}}</td>
-        <td>{{item.content}}</td>
-        <td>{{item.activityType}}</td>
-        <td>{{item.activityImage}}</td>
-        <td>{{item.createdDate}}</td>
-        <td>{{item.audience}}</td>
-        <td>{{item.someCoolDescription}}</td>
-        <td>{{item.name}}</td>
-        <td>{{item.smallImageUrl}}</td>
-        <td>{{item.largeImageUrl}}</td>
-    </tr>
-</table>
+﻿<!--
+Event exposure.
+<postbox (onPost) ="handleOnPost($event)"></postbox>    
+-->
+<div class="pf-content">
+    <header class="navbar navbar-default navbar-fixed-top pf-topbanner">
+        <div class="row">
+            <div class="container">
+                <div class="col-sm-11">
+                    <h2>zunwave | <span class="username">{{appUser.username}}</span></h2>
+                </div>
+                <div class="col-sm-1 text-right">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container container-fluid pf-content">
+        <div class="row">
+            <div class="col-sm-3">
+                <img [src]="appUser.profileImageUrl" class="img-thumbnail" width="300" />
+                <br />
+                <h2>{{appUser.name}}</h2>
+                <socialnetworklist></socialnetworklist>
+            </div>
+            <div class="col-sm-6">
+                <h2>Projects</h2>
+                <codeprojectlist></codeprojectlist>
+                <h2>Books</h2>
+                <booklist></booklist>
+                <h2>Articles</h2>
+                <articlelist></articlelist>
+            </div>
+            <div class="col-sm-3">
+                <technologylist></technologylist>
+            </div>
+        </div>
+        <div class="pf-copyright">
+            <hr />
+            Zunwave, 2016
+        </div>
+    </div>
+</div>

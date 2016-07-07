@@ -5,7 +5,7 @@ import { BoardComponent } from './components/board.component'
     {
         selector: 'my-app',
         templateUrl: 'app/app.component.html',
-        directives : [ BoardComponent ]
+        directives: [BoardComponent]
     }
 )
 export class AppComponent { }

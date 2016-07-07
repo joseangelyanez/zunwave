@@ -1,10 +1,15 @@
 ﻿import { Component }    from '@angular/core';
 import { OnInit }       from '@angular/core';
 import { Router }       from '@angular/router';
-import { ApiService }   from '../services/api.service'
-import { Http }         from '@angular/http';
-import { PostBoxComponent }      from '../components/postbox.component'
-import { Context  }     from '../dataflip.typings'
+import { ApiService }               from '../services/api.service'
+import { Http }                     from '@angular/http';
+import { PostBoxComponent }         from '../components/postbox.component'
+import { BooklistComponent }        from '../components/booklist.component'
+import { CodeProjectListComponent } from '../components/codeprojectlist.component'
+import { ArticleListComponent }     from '../components/articlelist.component'
+import { SocialNetworkListComponent }   from '../components/socialnetworklist.component'
+import { TechnologyListComponent }      from '../components/technologylist.component'
+import { Context  }                     from '../dataflip.typings'
 
 @Component({
     selector: 'board',
@@ -13,32 +18,37 @@ import { Context  }     from '../dataflip.typings'
     templateUrl: 'app/components/board.component.html',
 
     directives: [
-        PostBoxComponent
+        PostBoxComponent,
+        BooklistComponent,
+        CodeProjectListComponent,
+        ArticleListComponent,
+        SocialNetworkListComponent,
+        TechnologyListComponent
     ]
 })
 export class BoardComponent implements OnInit {
-    public activities: Array<Context.GetActivities_Result> = [];
+    public appUser: Context.GetAppUser_Result = new Context.GetAppUser_Result();
 
     constructor(private _service: ApiService) { }
 
     public handleOnPost(post: any)
     {
         console.log(post);
-        this.renderPosts();
     }
-
-    private renderPosts()
-    {
-        this._service.getActitvities().subscribe(
-            (value) => {
-                this.activities = value.json();
-            },
-            (error) => { },
-            () => { }
-        );
-    }
+    
 
     ngOnInit() {
-        this.renderPosts();
+        this._service.getSessionState().subscribe(
+            (result) =>
+            {
+                this.appUser = result.json().appUser;
+            },
+            (error) => {
+                    
+            },
+            () => {
+
+            }
+        );
     }
 }

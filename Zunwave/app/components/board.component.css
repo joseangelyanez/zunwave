@@ -1,2 +1,46 @@
-﻿body {
+﻿.header {
+    padding: 15px 0;
+    z-index: 9999;
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+.pf-content {
+    margin-top: 100px;
+}
+
+
+.pf-margin {
+    margin-top: 10px;
+}
+
+.pf-topbanner {
+    background: #f0f0f0;
+}
+
+.pf-copyright {
+    width: 100%;
+    text-align: center;
+    color: gray;
+    margin-top: 500px;
+    margin-bottom: 100px;
+    font-weight: bold;
+}
+
+.pf-circle {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    width: 40px;
+    height: 40px;
+    background: red;
+    border: 3px solid red;
+    font-weight: 500;
+    color: white;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.username {
+    color:darkgrey
 }

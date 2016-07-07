@@ -22,16 +22,16 @@ export class PostBoxComponent implements OnInit {
 
     handleClick()
     {
-        let params = new Context.CreateActivity_Parameters();
+        let params : any = {};
 
         params.content          = this.content;
         params.userId           = 1;
         params.activityImage    = "noimage";
         params.activityType     = "POST";
-
+        /*
         this._service.createActivity(params).subscribe(
             () => this.onPost.emit("created")
-        );
+        );*/
     }
 
     ngOnInit() {}

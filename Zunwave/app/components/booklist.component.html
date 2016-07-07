@@ -1,0 +1,10 @@
+﻿<!-- List binding for GetBooks -->
+<div *ngFor="let item of books ">
+    <div class="boolist-tile">
+        <strong>{{item.title}}</strong>
+        <div>{{item.author}}</div>
+        <div>{{item.comment}}</div>
+    </div>
+</div>
+
+<bookentry></bookentry>
