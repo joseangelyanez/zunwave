@@ -80,7 +80,6 @@ namespace Zunwave.Data
 			public Int32? AppUserId { get; set; } 
 			public String Email { get; set; } 
 			public String Name { get; set; } 
-			public String Password { get; set; } 
 			public String ProfileImageUrl { get; set; } 
 			public String Username { get; set; } 
 		}
@@ -353,9 +352,29 @@ namespace Zunwave.Data
 					AppUserId = reader["AppUserId"] as Int32?,
 					Email = reader["Email"] as String,
 					Name = reader["Name"] as String,
-					Password = reader["Password"] as String,
 					ProfileImageUrl = reader["ProfileImageUrl"] as String,
 					Username = reader["Username"] as String
+				}
+			);
+		}
+		#endregion
+
+		#region CreateAppUser
+		public class CreateAppUserParameters
+		{
+			public String Email { get; set; } 
+			public String Name { get; set; } 
+		}
+		public Int32 CreateAppUser(CreateAppUserParameters parameters)
+		{
+			return (Int32) new SqlQuery(Settings).ExecuteScalar(
+				query : "CreateAppUser",
+				parameters : _ =>
+				{
+					if (parameters == null) return;
+
+					_.AddWithValue("@Email", parameters.Email);
+					_.AddWithValue("@Name", parameters.Name);
 				}
 			);
 		}

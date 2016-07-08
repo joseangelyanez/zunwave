@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Zunwave.Models;
+using Zunwave.Data;
 
 namespace Zunwave.Controllers
 {
@@ -151,10 +152,19 @@ namespace Zunwave.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Name, Email = model.Email  };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    int appUserId = new Context().CreateAppUser(
+                        new Context.CreateAppUserParameters() {
+                            Email = user.Email,
+                            Name  = user.UserName
+                        }
+                    );
+
+                    UserManager.AddClaim(user.Id, new Claim("appUserId", appUserId.ToString()));
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -367,10 +377,19 @@ namespace Zunwave.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Name, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
+                    int appUserId = new Context().CreateAppUser(
+                        new Context.CreateAppUserParameters()
+                        {
+                            Email = user.Email,
+                            Name = user.UserName
+                        }
+                    );
+                    UserManager.AddClaim(user.Id, new Claim("appUserId", appUserId.ToString()));
+
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
@@ -425,7 +444,7 @@ namespace Zunwave.Controllers
 
         #region Helpers
         // Used for XSRF protection when adding external logins
-        private const string XsrfKey = "XsrfId";
+        private const string XsrfKey = "jyt4SsD";
 
         private IAuthenticationManager AuthenticationManager
         {

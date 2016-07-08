@@ -122,6 +122,18 @@ define(["require", "exports"], function (require, exports) {
             return GetAppUser_Parameters;
         }());
         Context.GetAppUser_Parameters = GetAppUser_Parameters;
+        var CreateAppUser_Result = (function () {
+            function CreateAppUser_Result() {
+            }
+            return CreateAppUser_Result;
+        }());
+        Context.CreateAppUser_Result = CreateAppUser_Result;
+        var CreateAppUser_Parameters = (function () {
+            function CreateAppUser_Parameters() {
+            }
+            return CreateAppUser_Parameters;
+        }());
+        Context.CreateAppUser_Parameters = CreateAppUser_Parameters;
     })(Context = exports.Context || (exports.Context = {}));
 });
 //# sourceMappingURL=dataflip.typings.js.map

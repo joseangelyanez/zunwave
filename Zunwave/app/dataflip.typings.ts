@@ -123,13 +123,22 @@ export namespace Context
 		appUserId : number ;
 		email : string ;
 		name : string ;
-		password : string ;
 		profileImageUrl : string ;
 		username : string ;
 	}
 	export class GetAppUser_Parameters
 	{
 		appUserId : number ;
+	}
+
+	export class CreateAppUser_Result
+	{
+		/* Method returns a basic type. */
+	}
+	export class CreateAppUser_Parameters
+	{
+		email : string ;
+		name : string ;
 	}
 
 }

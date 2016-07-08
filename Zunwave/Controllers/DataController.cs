@@ -4,11 +4,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Security.Claims;
 
 namespace Zunwave.Controllers
 {
     public class DataController : ApiController
     {
+        public int AppUserId
+        {
+            get
+            {
+                string appUserIdClaimValue = ((ClaimsIdentity)User.Identity)?.Claims?.FirstOrDefault(n => n.Type == "appUserId")?.Value;
+
+                if (appUserIdClaimValue != null)
+                    return int.Parse(appUserIdClaimValue);
+                else
+                    return 0;
+            }
+        }
+
         public class SessionState
         {
             public IEnumerable<Context.GetBooksResult> Books { get; set; }
@@ -17,12 +31,15 @@ namespace Zunwave.Controllers
             public IEnumerable<Context.GetSocialNetworksResult> SocialNetworks { get; set; }
             public IEnumerable<Context.GetTechnologiesResult> Technologies { get; set; }
             public Context.GetAppUserResult AppUser { get; set; }
+            public bool IsAuthenticated { get; set; }
         }
 
         [HttpGet]
         public SessionState GetSessionState(int userId)
         {
             Context context = new Context();
+
+            userId = AppUserId;
 
             var session = new SessionState() {
                 Books = context.GetBooks(new Context.GetBooksParameters() { AppUserId = userId }),
@@ -43,7 +60,7 @@ namespace Zunwave.Controllers
         [Route("api/data/CreateArticle")]
         public void CreateArticle(Context.CreateArticleParameters parameters)
         {
-            parameters.AppUserId = 1;
+            parameters.AppUserId = AppUserId;
             new Context().CreateArticle(parameters);
         }
 
@@ -51,7 +68,7 @@ namespace Zunwave.Controllers
         [Route("api/data/CreateCodeProject")]
         public void CreateCodeProject(Context.CreateCodeProjectParameters parameters)
         {
-            parameters.AppUserId = 1;
+            parameters.AppUserId = AppUserId;
             new Context().CreateCodeProject(parameters);
         }
 
@@ -59,7 +76,7 @@ namespace Zunwave.Controllers
         [Route("api/data/CreateBook")]
         public void CreateBook(Context.CreateBookParameters parameters)
         {
-            parameters.AppUserId = 1;
+            parameters.AppUserId = AppUserId;
             new Context().CreateBook(parameters);
         }
     }

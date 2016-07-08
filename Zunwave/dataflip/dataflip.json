@@ -62,9 +62,11 @@
           "testParams": [
             { "@AppUserId": "1 : int" }
           ]
+        },
+        {
+          "name": "CreateAppUser",
+          "return" : "int"
         }
-
-
       ]
     }
 	]
